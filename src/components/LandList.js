@@ -4,18 +4,10 @@ import { Alert, CircularProgress, Container, Grid, Stack } from "@mui/material";
 import useGetData from "../hooks/useGetData";
 import { constructUrl } from "../utils";
 
-const LAND_DATA_API = "https://prod-be.1acre.in/lands";
-
 const LandList = () => {
   const [pageNumber, setPageNumber] = useState(1);
 
-  const apiParams = {
-    ordering: "-updated",
-    page_size: 10,
-    page: pageNumber,
-  };
-  const paginatedApi = constructUrl(LAND_DATA_API, apiParams);
-  const { loading, error, data, hasMore } = useGetData(paginatedApi);
+  const { loading, error, data, hasMore } = useGetData(pageNumber);
 
   const observer = useRef();
   const lastElementRef = useCallback(
