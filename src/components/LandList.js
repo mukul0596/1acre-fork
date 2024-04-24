@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from "react";
 import LandCard from "./LandCard";
 import { Alert, CircularProgress, Container, Grid, Stack } from "@mui/material";
 import useGetData from "../hooks/useGetData";
-import { constructUrl } from "../utils";
 
 const LandList = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -38,6 +37,7 @@ const LandList = () => {
             key={landData?.id}
             ref={data?.length === index + 1 ? lastElementRef : null}
             item
+            xs={12}
             sm={6}
             md={4}
           >
